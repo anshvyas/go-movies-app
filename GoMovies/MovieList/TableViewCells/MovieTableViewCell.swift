@@ -30,5 +30,5 @@ class MovieTableViewCell: UITableViewCell {
 
 extension MovieTableViewCell {
     static var reuseIndentifier: String { return "MovieTableViewCell" }
-    static var nib: UINib { return UINib(nibName: "MovieTableViewCell", bundle: nil)}
+    static var nib: UINib { return UINib(nibName: "MovieTableViewCell", bundle: nil) }
 }
