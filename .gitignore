@@ -58,3 +58,6 @@ iOSInjectionProject/
 ### Xcode Patch ###
 *.xcodeproj/*
 /*.gcno
+
+# Credentials File
+Credentials.swift
