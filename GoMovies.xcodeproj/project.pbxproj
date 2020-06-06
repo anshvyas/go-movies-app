@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		483DD716248B9B4F006C4058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD715248B9B4F006C4058 /* AppDelegate.swift */; };
-		483DD718248B9B4F006C4058 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD717248B9B4F006C4058 /* SceneDelegate.swift */; };
 		483DD71A248B9B4F006C4058 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD719248B9B4F006C4058 /* ViewController.swift */; };
 		483DD71D248B9B4F006C4058 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483DD71B248B9B4F006C4058 /* Main.storyboard */; };
 		483DD71F248B9B50006C4058 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 483DD71E248B9B50006C4058 /* Assets.xcassets */; };
@@ -29,7 +28,6 @@
 /* Begin PBXFileReference section */
 		483DD712248B9B4F006C4058 /* GoMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		483DD715248B9B4F006C4058 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		483DD717248B9B4F006C4058 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		483DD719248B9B4F006C4058 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		483DD71C248B9B4F006C4058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		483DD71E248B9B50006C4058 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +36,7 @@
 		483DD728248B9B51006C4058 /* GoMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		483DD72C248B9B51006C4058 /* GoMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoMoviesTests.swift; sourceTree = "<group>"; };
 		483DD72E248B9B51006C4058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		483DD737248B9F25006C4058 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +63,7 @@
 				483DD714248B9B4F006C4058 /* GoMovies */,
 				483DD72B248B9B51006C4058 /* GoMoviesTests */,
 				483DD713248B9B4F006C4058 /* Products */,
+				483DD737248B9F25006C4058 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				483DD715248B9B4F006C4058 /* AppDelegate.swift */,
-				483DD717248B9B4F006C4058 /* SceneDelegate.swift */,
 				483DD719248B9B4F006C4058 /* ViewController.swift */,
 				483DD71B248B9B4F006C4058 /* Main.storyboard */,
 				483DD71E248B9B50006C4058 /* Assets.xcassets */,
@@ -202,7 +201,6 @@
 			files = (
 				483DD71A248B9B4F006C4058 /* ViewController.swift in Sources */,
 				483DD716248B9B4F006C4058 /* AppDelegate.swift in Sources */,
-				483DD718248B9B4F006C4058 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +363,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F47V45YY86;
 				INFOPLIST_FILE = GoMovies/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,7 +371,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anshul.GoMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -383,6 +382,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F47V45YY86;
 				INFOPLIST_FILE = GoMovies/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,7 +390,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.anshul.GoMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
