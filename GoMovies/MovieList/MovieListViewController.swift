@@ -8,9 +8,26 @@
 
 import UIKit
 
+protocol MovieListViewControllerProtocol: class {}
+
 class MovieListViewController: UIViewController {
     @IBOutlet weak var movieListTableView: UITableView!
-    
+
+    private let presenter: MovieListPresenterProtocol
+
+    init() {
+        let interactor = MovieListInteractor()
+        let presenter = MovieListPresenter(interactor: interactor)
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+        presenter.view = self
+        interactor.presenter = presenter
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
@@ -43,3 +60,6 @@ extension MovieListViewController: UITableViewDataSource {
 extension MovieListViewController: UITableViewDelegate {
     //TODO: Implement didSelect for TableView row
 }
+
+//MARK: MovieListProtocol methods
+extension MovieListViewController: MovieListViewControllerProtocol {}

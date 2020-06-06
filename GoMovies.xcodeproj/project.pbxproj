@@ -16,6 +16,8 @@
 		483DD73C248BBA56006C4058 /* MovieListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 483DD73A248BBA56006C4058 /* MovieListViewController.xib */; };
 		483DD73F248BBE96006C4058 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD73D248BBE96006C4058 /* MovieTableViewCell.swift */; };
 		483DD740248BBE96006C4058 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 483DD73E248BBE96006C4058 /* MovieTableViewCell.xib */; };
+		48FA63D5248BDD0A0075871C /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63D4248BDD0A0075871C /* MovieListPresenter.swift */; };
+		48FA63D7248BDD1B0075871C /* MovieListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63D6248BDD1B0075871C /* MovieListInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		483DD73A248BBA56006C4058 /* MovieListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListViewController.xib; sourceTree = "<group>"; };
 		483DD73D248BBE96006C4058 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		483DD73E248BBE96006C4058 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		48FA63D4248BDD0A0075871C /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
+		48FA63D6248BDD1B0075871C /* MovieListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +112,10 @@
 			isa = PBXGroup;
 			children = (
 				483DD741248BBE9D006C4058 /* TableViewCells */,
-				483DD739248BBA56006C4058 /* MovieListViewController.swift */,
 				483DD73A248BBA56006C4058 /* MovieListViewController.xib */,
+				483DD739248BBA56006C4058 /* MovieListViewController.swift */,
+				48FA63D4248BDD0A0075871C /* MovieListPresenter.swift */,
+				48FA63D6248BDD1B0075871C /* MovieListInteractor.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -228,7 +234,9 @@
 			files = (
 				483DD716248B9B4F006C4058 /* AppDelegate.swift in Sources */,
 				483DD73B248BBA56006C4058 /* MovieListViewController.swift in Sources */,
+				48FA63D7248BDD1B0075871C /* MovieListInteractor.swift in Sources */,
 				483DD73F248BBE96006C4058 /* MovieTableViewCell.swift in Sources */,
+				48FA63D5248BDD0A0075871C /* MovieListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

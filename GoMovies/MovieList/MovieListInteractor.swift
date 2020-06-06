@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+protocol MovieListInteractorProtocol: class {}
+
+class MovieListInteractor {
+    weak var presenter: MovieListPresenterProtocol?
+}
+
+//MARK: MovieListInteractorProtocol Methods
+extension MovieListInteractor: MovieListInteractorProtocol {}
