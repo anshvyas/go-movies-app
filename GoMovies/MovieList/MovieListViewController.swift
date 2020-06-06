@@ -17,8 +17,12 @@ class MovieListViewController: UIViewController {
     }
 
     private func setupTableView() {
+        self.movieListTableView.register(MovieTableViewCell.nib, forCellReuseIdentifier: MovieTableViewCell.reuseIndentifier)
         self.movieListTableView.dataSource = self
         self.movieListTableView.delegate = self
+        self.movieListTableView.estimatedRowHeight = 76.0
+        self.movieListTableView.rowHeight = UITableView.automaticDimension
+        self.movieListTableView.reloadData()
     }
 }
 
@@ -27,12 +31,12 @@ class MovieListViewController: UIViewController {
 extension MovieListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //TODO: Replace this with count of movies
-        return 0
+        return 10
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //TODO: Dequeue Custom TableViewCell
-        return UITableViewCell(frame: .zero)
+        //TODO: Update cell data
+        return tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.reuseIndentifier, for: indexPath)
     }
 }
 

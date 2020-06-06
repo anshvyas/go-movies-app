@@ -13,7 +13,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="93" id="KGk-i7-Jjw" customClass="MovieTableViewCell" customModule="GoMovies" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="344" height="93"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="344" height="93"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -55,15 +55,14 @@
                     <constraint firstAttribute="trailing" secondItem="dan-LA-9iE" secondAttribute="trailing" constant="8" id="HM0-qn-PdC"/>
                     <constraint firstItem="dan-LA-9iE" firstAttribute="leading" secondItem="rO3-hp-OtJ" secondAttribute="trailing" constant="8" id="INh-FS-CXf"/>
                     <constraint firstItem="mdl-o4-ggt" firstAttribute="leading" secondItem="4l9-cw-Uki" secondAttribute="leading" id="IVF-a5-HvC"/>
-                    <constraint firstAttribute="bottom" secondItem="rO3-hp-OtJ" secondAttribute="bottom" constant="16" id="Lak-Zi-Kuq"/>
                     <constraint firstItem="HVY-ux-yZG" firstAttribute="trailing" secondItem="4l9-cw-Uki" secondAttribute="trailing" id="OCZ-Zr-cOo"/>
                     <constraint firstItem="4l9-cw-Uki" firstAttribute="leading" secondItem="rO3-hp-OtJ" secondAttribute="trailing" constant="8" id="P9N-Ik-qxi"/>
                     <constraint firstItem="rO3-hp-OtJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Ug0-zX-D7R"/>
                     <constraint firstItem="HVY-ux-yZG" firstAttribute="top" secondItem="dan-LA-9iE" secondAttribute="bottom" constant="2" id="XGn-e4-lYN"/>
                     <constraint firstItem="4l9-cw-Uki" firstAttribute="top" secondItem="rO3-hp-OtJ" secondAttribute="top" id="acg-2q-17B"/>
                     <constraint firstItem="dan-LA-9iE" firstAttribute="leading" secondItem="4l9-cw-Uki" secondAttribute="leading" id="hsW-7b-rxP"/>
+                    <constraint firstAttribute="bottom" secondItem="rO3-hp-OtJ" secondAttribute="bottom" constant="16" id="ine-yO-dma"/>
                     <constraint firstItem="dan-LA-9iE" firstAttribute="top" secondItem="4l9-cw-Uki" secondAttribute="bottom" constant="2" id="o1L-mw-qCd"/>
-                    <constraint firstItem="rO3-hp-OtJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ppG-b0-Nod"/>
                     <constraint firstItem="rO3-hp-OtJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="qUg-cU-Q1O"/>
                     <constraint firstItem="mdl-o4-ggt" firstAttribute="top" secondItem="dan-LA-9iE" secondAttribute="bottom" constant="2" id="v4w-Uc-rtV"/>
                     <constraint firstItem="HVY-ux-yZG" firstAttribute="leading" relation="lessThanOrEqual" secondItem="mdl-o4-ggt" secondAttribute="trailing" constant="136" id="zYa-pK-uvc"/>
