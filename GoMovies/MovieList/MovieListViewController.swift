@@ -9,11 +9,14 @@
 import UIKit
 
 protocol MovieListViewControllerProtocol: class {
+    func startLoading()
+    func stopLoading()
     func reloadData()
 }
 
 class MovieListViewController: UIViewController {
     @IBOutlet weak var movieListTableView: UITableView!
+    private var activityIndicator: UIActivityIndicatorView?
 
     private let presenter: MovieListViewDelegate
 
@@ -32,8 +35,16 @@ class MovieListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupActivityIndicator()
         self.setupTableView()
         self.presenter.viewDidLoad()
+    }
+
+    private func setupActivityIndicator() {
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+        self.activityIndicator = activityIndicator
     }
 
     private func setupTableView() {
@@ -42,6 +53,7 @@ class MovieListViewController: UIViewController {
         self.movieListTableView.delegate = self
         self.movieListTableView.estimatedRowHeight = 76.0
         self.movieListTableView.rowHeight = UITableView.automaticDimension
+        self.movieListTableView.isHidden = true
     }
 }
 
@@ -67,7 +79,18 @@ extension MovieListViewController: UITableViewDelegate {
 
 //MARK: MovieListProtocol methods
 extension MovieListViewController: MovieListViewControllerProtocol {
+    func startLoading() {
+        self.activityIndicator?.startAnimating()
+    }
+    
+    func stopLoading() {
+        self.activityIndicator?.stopAnimating()
+        self.activityIndicator? .removeFromSuperview()
+        self.activityIndicator = nil
+    }
+
     func reloadData() {
         self.movieListTableView.reloadData()
+        self.movieListTableView.isHidden = false
     }
 }

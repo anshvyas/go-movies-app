@@ -33,6 +33,7 @@ class MovieListPresenter {
 //MARK: Delegate callbacks for view
 extension MovieListPresenter: MovieListViewDelegate {
     func viewDidLoad() {
+        self.view?.startLoading()
         self.interactor.fetchMovieList()
     }
 
@@ -57,9 +58,11 @@ extension MovieListPresenter: MovieListViewDelegate {
 extension MovieListPresenter: MovieListIneractorDelegate {
     func fetchMovieListSuccess(data: MovieListModel) {
         self.movies = data.results
+        self.view?.stopLoading()
         self.view?.reloadData()
     }
 
     func fetchMovieListError(error: HTTPError) {
+        self.view?.stopLoading()
     }
 }
