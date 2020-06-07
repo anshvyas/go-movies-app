@@ -18,9 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rootViewController: UIViewController = MovieListViewController(appDelegate: self)
-        let navigationController: UINavigationController = UINavigationController(rootViewController: rootViewController)
-        window?.rootViewController = navigationController
+        let rootViewController: UIViewController = MovieListRouter.createMovieListModule(appDelegate: self)
+        window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
         return true
     }

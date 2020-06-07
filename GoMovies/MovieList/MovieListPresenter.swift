@@ -22,10 +22,12 @@ protocol MovieListViewDelegate: class {
 class MovieListPresenter {
     weak var view: MovieListViewControllerProtocol?
     private let interactor: MovieListInteractorProtocol
+    private let router: MovieListRouterProtocol
     private var movies: [MovieListModel.Movie]
 
-    init(interactor: MovieListInteractorProtocol) {
+    init(interactor: MovieListInteractorProtocol, router: MovieListRouterProtocol) {
         self.interactor = interactor
+        self.router = router
         self.movies = []
     }
 }

@@ -22,6 +22,7 @@
 		48FA63DD248C08290075871C /* MovieNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63DC248C08290075871C /* MovieNetworkService.swift */; };
 		48FA63DF248C09A80075871C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63DE248C09A80075871C /* Constants.swift */; };
 		48FA63E1248CC9E90075871C /* APIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63E0248CC9E90075871C /* APIData.swift */; };
+		48FA63E3248D2BE60075871C /* MovieListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63E2248D2BE60075871C /* MovieListRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		48FA63DC248C08290075871C /* MovieNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNetworkService.swift; sourceTree = "<group>"; };
 		48FA63DE248C09A80075871C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		48FA63E0248CC9E90075871C /* APIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIData.swift; sourceTree = "<group>"; };
+		48FA63E2248D2BE60075871C /* MovieListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				483DD739248BBA56006C4058 /* MovieListViewController.swift */,
 				48FA63D4248BDD0A0075871C /* MovieListPresenter.swift */,
 				48FA63D6248BDD1B0075871C /* MovieListInteractor.swift */,
+				48FA63E2248D2BE60075871C /* MovieListRouter.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				48FA63DA248BEC800075871C /* MovieListModel.swift in Sources */,
 				48FA63DD248C08290075871C /* MovieNetworkService.swift in Sources */,
 				483DD716248B9B4F006C4058 /* AppDelegate.swift in Sources */,
+				48FA63E3248D2BE60075871C /* MovieListRouter.swift in Sources */,
 				48FA63E1248CC9E90075871C /* APIData.swift in Sources */,
 				483DD73B248BBA56006C4058 /* MovieListViewController.swift in Sources */,
 				48FA63D7248BDD1B0075871C /* MovieListInteractor.swift in Sources */,

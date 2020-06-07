@@ -20,13 +20,9 @@ class MovieListViewController: UIViewController {
 
     private let presenter: MovieListViewDelegate
 
-    init(appDelegate: AppDelegateProtocol) {
-        let interactor = MovieListInteractor(service: appDelegate.networkService)
-        let presenter = MovieListPresenter(interactor: interactor)
+    init(presenter: MovieListViewDelegate) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        presenter.view = self
-        interactor.presenter = presenter
     }
 
     required init?(coder: NSCoder) {
