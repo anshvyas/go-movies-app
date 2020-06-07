@@ -20,6 +20,6 @@ struct MovieListModel: Decodable {
         let overview: String
         let posterPath: String
         let releaseDate: String
-        let voteAverage: Int
+        let voteAverage: Double
     }
 }

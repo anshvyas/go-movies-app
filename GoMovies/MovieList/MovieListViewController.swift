@@ -8,15 +8,17 @@
 
 import UIKit
 
-protocol MovieListViewControllerProtocol: class {}
+protocol MovieListViewControllerProtocol: class {
+    func reloadData()
+}
 
 class MovieListViewController: UIViewController {
     @IBOutlet weak var movieListTableView: UITableView!
 
-    private let presenter: MovieListPresenterProtocol
+    private let presenter: MovieListViewDelegate
 
-    init() {
-        let interactor = MovieListInteractor()
+    init(appDelegate: AppDelegateProtocol) {
+        let interactor = MovieListInteractor(service: appDelegate.networkService)
         let presenter = MovieListPresenter(interactor: interactor)
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -31,6 +33,7 @@ class MovieListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
+        self.presenter.viewDidLoad()
     }
 
     private func setupTableView() {
@@ -39,7 +42,6 @@ class MovieListViewController: UIViewController {
         self.movieListTableView.delegate = self
         self.movieListTableView.estimatedRowHeight = 76.0
         self.movieListTableView.rowHeight = UITableView.automaticDimension
-        self.movieListTableView.reloadData()
     }
 }
 
@@ -47,13 +49,15 @@ class MovieListViewController: UIViewController {
 //MARK: TableView Methods
 extension MovieListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO: Replace this with count of movies
-        return 10
+        return self.presenter.getNumberOfRows()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //TODO: Update cell data
-        return tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.reuseIndentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.reuseIndentifier, for: indexPath) as! MovieTableViewCell
+        let cellData = self.presenter.getCellData(at: indexPath.row)
+        cell.updateData(data: cellData)
+
+        return cell
     }
 }
 
@@ -62,4 +66,8 @@ extension MovieListViewController: UITableViewDelegate {
 }
 
 //MARK: MovieListProtocol methods
-extension MovieListViewController: MovieListViewControllerProtocol {}
+extension MovieListViewController: MovieListViewControllerProtocol {
+    func reloadData() {
+        self.movieListTableView.reloadData()
+    }
+}

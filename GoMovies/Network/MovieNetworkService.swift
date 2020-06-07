@@ -11,11 +11,25 @@ import Foundation
 enum HTTPError: Error {
     case transportError(Error)
     case serverSideError(Int)
+    case responseParsingError(reason: ResponseParsingErrorReason)
+
+    enum  ResponseParsingErrorReason{
+        case emptyData
+        case jsonParsingFailed
+    }
 }
 
-class MovieNetworkService {
-    let session = URLSession.shared
+protocol NetworkServiceProtocol {
+    func makeAPIRequest(data: APIData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void)
+}
+
+class MovieNetworkService: NetworkServiceProtocol {
+    let session: URLSession
     var dataTask: URLSessionTask?
+
+    init() {
+        self.session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
+    }
 
     private func initRequest(data: APIData) -> URLRequest? {
         guard let url = URL(string: data.urlString) else {
@@ -31,6 +45,7 @@ class MovieNetworkService {
     }
 
     func makeAPIRequest(data: APIData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void) {
+        self.dataTask = nil
         guard let request = self.initRequest(data: data) else {
             return
         }
@@ -40,7 +55,7 @@ class MovieNetworkService {
                 completionHandler(Result.failure(.transportError(error)))
                 return
             }
-
+            
             let response = response as! HTTPURLResponse
             let status = response.statusCode
             guard (200...299).contains(status) else {
@@ -48,7 +63,7 @@ class MovieNetworkService {
                 return
             }
 
-            completionHandler(Result.success((data, response)))
+            completionHandler(Result.success(data))
         }
 
         self.dataTask = task
