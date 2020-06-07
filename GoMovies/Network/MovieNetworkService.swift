@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum HTTPError: Error {
+    case transportError(Error)
+    case serverSideError(Int)
+}
+
 class MovieNetworkService {
     let session = URLSession.shared
     var dataTask: URLSessionTask?
@@ -25,13 +30,25 @@ class MovieNetworkService {
         return request
     }
 
-    func makeAPIRequest(data: APIData) {
+    func makeAPIRequest(data: APIData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void) {
         guard let request = self.initRequest(data: data) else {
             return
         }
 
         let task = self.session.dataTask(with: request) { (data, response, error) in
-            //TODO: Completion Handlers
+            if let error = error {
+                completionHandler(Result.failure(.transportError(error)))
+                return
+            }
+
+            let response = response as! HTTPURLResponse
+            let status = response.statusCode
+            guard (200...299).contains(status) else {
+                completionHandler(Result.failure(.serverSideError(status)))
+                return
+            }
+
+            completionHandler(Result.success((data, response)))
         }
 
         self.dataTask = task
