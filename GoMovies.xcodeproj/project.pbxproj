@@ -16,6 +16,8 @@
 		483DD73C248BBA56006C4058 /* MovieListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 483DD73A248BBA56006C4058 /* MovieListViewController.xib */; };
 		483DD73F248BBE96006C4058 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD73D248BBE96006C4058 /* MovieTableViewCell.swift */; };
 		483DD740248BBE96006C4058 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 483DD73E248BBE96006C4058 /* MovieTableViewCell.xib */; };
+		4842CA8424969D30009AA070 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842CA8324969D30009AA070 /* ImageDownloader.swift */; };
+		4842CA8624972B4A009AA070 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842CA8524972B4A009AA070 /* HTTPError.swift */; };
 		48FA63D5248BDD0A0075871C /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63D4248BDD0A0075871C /* MovieListPresenter.swift */; };
 		48FA63D7248BDD1B0075871C /* MovieListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63D6248BDD1B0075871C /* MovieListInteractor.swift */; };
 		48FA63DA248BEC800075871C /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63D9248BEC800075871C /* MovieListModel.swift */; };
@@ -50,6 +52,8 @@
 		483DD73A248BBA56006C4058 /* MovieListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListViewController.xib; sourceTree = "<group>"; };
 		483DD73D248BBE96006C4058 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		483DD73E248BBE96006C4058 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
+		4842CA8324969D30009AA070 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		4842CA8524972B4A009AA070 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		48FA63D4248BDD0A0075871C /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
 		48FA63D6248BDD1B0075871C /* MovieListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractor.swift; sourceTree = "<group>"; };
 		48FA63D9248BEC800075871C /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 		483DD714248B9B4F006C4058 /* GoMovies */ = {
 			isa = PBXGroup;
 			children = (
+				4842CA8224969C6D009AA070 /* ImageDownload */,
 				48FA63DB248C08100075871C /* Network */,
 				483DD738248BB9BD006C4058 /* MovieList */,
 				48FA63D8248BEC0F0075871C /* Models */,
@@ -142,6 +147,14 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		4842CA8224969C6D009AA070 /* ImageDownload */ = {
+			isa = PBXGroup;
+			children = (
+				4842CA8324969D30009AA070 /* ImageDownloader.swift */,
+			);
+			path = ImageDownload;
+			sourceTree = "<group>";
+		};
 		48FA63D8248BEC0F0075871C /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +169,7 @@
 				48FA63DC248C08290075871C /* MovieNetworkService.swift */,
 				48FA63DE248C09A80075871C /* Constants.swift */,
 				48FA63E0248CC9E90075871C /* APIData.swift */,
+				4842CA8524972B4A009AA070 /* HTTPError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -267,8 +281,10 @@
 				48FA63DD248C08290075871C /* MovieNetworkService.swift in Sources */,
 				483DD716248B9B4F006C4058 /* AppDelegate.swift in Sources */,
 				48FA63E3248D2BE60075871C /* MovieListRouter.swift in Sources */,
+				4842CA8624972B4A009AA070 /* HTTPError.swift in Sources */,
 				48FA63E1248CC9E90075871C /* APIData.swift in Sources */,
 				483DD73B248BBA56006C4058 /* MovieListViewController.swift in Sources */,
+				4842CA8424969D30009AA070 /* ImageDownloader.swift in Sources */,
 				48FA63D7248BDD1B0075871C /* MovieListInteractor.swift in Sources */,
 				483DD73F248BBE96006C4058 /* MovieTableViewCell.swift in Sources */,
 				48FA63D5248BDD0A0075871C /* MovieListPresenter.swift in Sources */,

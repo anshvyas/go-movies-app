@@ -8,17 +8,6 @@
 
 import Foundation
 
-enum HTTPError: Error {
-    case transportError(Error)
-    case serverSideError(Int)
-    case responseParsingError(reason: ResponseParsingErrorReason)
-
-    enum  ResponseParsingErrorReason{
-        case emptyData
-        case jsonParsingFailed
-    }
-}
-
 protocol NetworkServiceProtocol {
     func makeAPIRequest(data: APIData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void)
 }
