@@ -11,4 +11,6 @@ import Foundation
 class Constants {
     static let movieListUrlString: String = "https://api.themoviedb.org/3/movie/popular"
     static let contentType: String = "application/json;charset=utf-8"
+    static let moviePosterBaseUrlString: String = "https://image.tmdb.org/t/p/"
+    static let moviePosterSizeParam: String = "w185"
 }

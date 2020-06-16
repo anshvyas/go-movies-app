@@ -28,8 +28,8 @@ class MovieTableViewCell: UITableViewCell {
     }
 
     func updateData(data: MovieCellData) {
-        //TODO: Download Appropriate Movie Image
-        self.movieImageView.image = UIImage(named: "DefaultPoster")
+        let urlString = Constants.moviePosterBaseUrlString + Constants.moviePosterSizeParam + data.imageUrl
+        self.movieImageView.setImage(urlString: urlString, placeHolderImage: "DefaultPoster", loadingImage: "DefaultPoster")
         self.movieTitleLabel.text = data.title
         self.movieDescriptionLabel.text = data.description
         self.movieReleaseDateLabel.text = data.releaseData

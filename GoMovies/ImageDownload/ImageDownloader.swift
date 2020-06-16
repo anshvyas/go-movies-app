@@ -26,8 +26,6 @@ class ImageDownloader {
     }
 
     func download(urlString: String, completion: (@escaping (Result<Data, HTTPError>) -> Void)) {
-        self.task?.cancel()
-
         guard let url = URL(string: urlString) else {
             completion(Result.failure(.urlParsingError))
             return
