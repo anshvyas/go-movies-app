@@ -12,6 +12,7 @@ protocol MovieListViewControllerProtocol: class {
     func startLoading()
     func stopLoading()
     func reloadData()
+    func showErrorPopUp(title: String, message: String)
 }
 
 class MovieListViewController: UIViewController {
@@ -31,16 +32,15 @@ class MovieListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupActivityIndicator()
         self.setupTableView()
         self.presenter.viewDidLoad()
     }
 
-    private func setupActivityIndicator() {
+    private func setupActivityIndicator() -> UIActivityIndicatorView{
         let activityIndicator = UIActivityIndicatorView(style: .gray)
         activityIndicator.center = self.view.center
         self.view.addSubview(activityIndicator)
-        self.activityIndicator = activityIndicator
+        return activityIndicator
     }
 
     private func setupTableView() {
@@ -75,7 +75,19 @@ extension MovieListViewController: UITableViewDelegate {
 
 //MARK: MovieListProtocol methods
 extension MovieListViewController: MovieListViewControllerProtocol {
+    func showErrorPopUp(title: String, message: String) {
+        let errorPopup = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let retryAction = UIAlertAction(title: MovieListConstants.errorPopupRetry, style: .default, handler: { [weak self] (action) in
+            self?.presenter.viewDidLoad()
+        })
+        errorPopup.addAction(retryAction)
+
+        self.present(errorPopup, animated: true, completion: nil)
+    }
+    
     func startLoading() {
+        let activityIndicator = self.setupActivityIndicator()
+        self.activityIndicator = activityIndicator
         self.activityIndicator?.startAnimating()
     }
     
