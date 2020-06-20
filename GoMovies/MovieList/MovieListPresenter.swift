@@ -66,6 +66,6 @@ extension MovieListPresenter: MovieListIneractorDelegate {
 
     func fetchMovieListError(error: HTTPError) {
         self.view?.stopLoading()
-        self.view?.showErrorPopUp(title: MovieListConstants.errorPopupTitle, message: MovieListConstants.errorPopupMessage)
+        self.view?.showErrorPopUp(title: "error_popup_title".localizedString(), message: "error_popup_message".localizedString())
     }
 }

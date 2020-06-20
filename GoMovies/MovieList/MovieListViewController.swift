@@ -77,7 +77,7 @@ extension MovieListViewController: UITableViewDelegate {
 extension MovieListViewController: MovieListViewControllerProtocol {
     func showErrorPopUp(title: String, message: String) {
         let errorPopup = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let retryAction = UIAlertAction(title: MovieListConstants.errorPopupRetry, style: .default, handler: { [weak self] (action) in
+        let retryAction = UIAlertAction(title:"error_popup_cta_title".localizedString(), style: .default, handler: { [weak self] (action) in
             self?.presenter.viewDidLoad()
         })
         errorPopup.addAction(retryAction)

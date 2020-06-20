@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  GoMovies
+
+  Created by Anshul Vyas on 18/06/20.
+  Copyright © 2020 Anshul Vyas. All rights reserved.
+*/
+
+"error_popup_title" = "Ooh Something Went Wrong!";
+"error_popup_message" = "No worries. Try again, we’re already on it.";
+"error_popup_cta_title" = "Retry";
