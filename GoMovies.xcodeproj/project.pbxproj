@@ -94,7 +94,6 @@
 		483DD709248B9B4F006C4058 = {
 			isa = PBXGroup;
 			children = (
-				48CDC3E7249BE39A00F9066A /* Localizable.strings */,
 				483DD714248B9B4F006C4058 /* GoMovies */,
 				483DD72B248B9B51006C4058 /* GoMoviesTests */,
 				483DD713248B9B4F006C4058 /* Products */,
@@ -121,6 +120,7 @@
 				483DD738248BB9BD006C4058 /* MovieList */,
 				48FA63D8248BEC0F0075871C /* Models */,
 				483DD71E248B9B50006C4058 /* Assets.xcassets */,
+				48CDC3E7249BE39A00F9066A /* Localizable.strings */,
 				483DD723248B9B50006C4058 /* Info.plist */,
 			);
 			path = GoMovies;
