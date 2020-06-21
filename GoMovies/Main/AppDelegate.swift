@@ -12,7 +12,7 @@ protocol AppDelegateProtocol {
     var networkService: NetworkServiceProtocol { get }
 }
 
-@UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 

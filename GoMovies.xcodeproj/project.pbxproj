@@ -18,6 +18,7 @@
 		4842CA8624972B4A009AA070 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842CA8524972B4A009AA070 /* HTTPError.swift */; };
 		4888122F249F57550081AF79 /* MovieListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4888122E249F57550081AF79 /* MovieListInteractorTests.swift */; };
 		48881232249F57C20081AF79 /* MovieNetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48881231249F57C20081AF79 /* MovieNetworkServiceMock.swift */; };
+		48881234249F9BD50081AF79 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48881233249F9BD50081AF79 /* main.swift */; };
 		48A770372497B12500BC4F23 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A770362497B12500BC4F23 /* UIImageExtension.swift */; };
 		48A770392498B22E00BC4F23 /* FailableDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A770382498B22D00BC4F23 /* FailableDecodable.swift */; };
 		48B24A97249A54CB004A29B0 /* LocalizationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B24A96249A54CB004A29B0 /* LocalizationExtension.swift */; };
@@ -58,6 +59,7 @@
 		4842CA8524972B4A009AA070 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		4888122E249F57550081AF79 /* MovieListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractorTests.swift; sourceTree = "<group>"; };
 		48881231249F57C20081AF79 /* MovieNetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNetworkServiceMock.swift; sourceTree = "<group>"; };
+		48881233249F9BD50081AF79 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		48A770362497B12500BC4F23 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		48A770382498B22D00BC4F23 /* FailableDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailableDecodable.swift; sourceTree = "<group>"; };
 		48B24A96249A54CB004A29B0 /* LocalizationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationExtension.swift; sourceTree = "<group>"; };
@@ -112,14 +114,13 @@
 		483DD714248B9B4F006C4058 /* GoMovies */ = {
 			isa = PBXGroup;
 			children = (
+				48881235249F9CC20081AF79 /* Main */,
 				48881229249E5D7F0081AF79 /* Utils */,
 				4842CA8224969C6D009AA070 /* ImageDownload */,
 				48FA63DB248C08100075871C /* Network */,
 				483DD738248BB9BD006C4058 /* MovieList */,
 				48FA63D8248BEC0F0075871C /* Models */,
 				483DD71E248B9B50006C4058 /* Assets.xcassets */,
-				483DD715248B9B4F006C4058 /* AppDelegate.swift */,
-				483DD720248B9B50006C4058 /* LaunchScreen.storyboard */,
 				483DD723248B9B50006C4058 /* Info.plist */,
 			);
 			path = GoMovies;
@@ -188,6 +189,16 @@
 				48881231249F57C20081AF79 /* MovieNetworkServiceMock.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		48881235249F9CC20081AF79 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				483DD720248B9B50006C4058 /* LaunchScreen.storyboard */,
+				48881233249F9BD50081AF79 /* main.swift */,
+				483DD715248B9B4F006C4058 /* AppDelegate.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		48FA63D8248BEC0F0075871C /* Models */ = {
@@ -323,6 +334,7 @@
 				483DD73B248BBA56006C4058 /* MovieListViewController.swift in Sources */,
 				4842CA8424969D30009AA070 /* ImageDownloader.swift in Sources */,
 				48FA63D7248BDD1B0075871C /* MovieListInteractor.swift in Sources */,
+				48881234249F9BD50081AF79 /* main.swift in Sources */,
 				48A770372497B12500BC4F23 /* UIImageExtension.swift in Sources */,
 				483DD73F248BBE96006C4058 /* MovieTableViewCell.swift in Sources */,
 				48A770392498B22E00BC4F23 /* FailableDecodable.swift in Sources */,
