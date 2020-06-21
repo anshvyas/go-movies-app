@@ -56,7 +56,7 @@ iOSInjectionProject/
 ### Xcode ###
 # Xcode
 ### Xcode Patch ###
-./GoMovies.xcodeproj/xcuserdata/
+./MovieTime.xcodeproj/xcuserdata/
 /*.gcno
 
 # Credentials File

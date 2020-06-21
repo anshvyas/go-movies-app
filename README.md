@@ -1,4 +1,4 @@
-# GoMovies
+# MovieTime
 
 # Project Description
 An iOS app built as a pet project which serves you latest movies to watchout for. 
