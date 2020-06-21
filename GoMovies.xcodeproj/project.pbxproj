@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		483DD716248B9B4F006C4058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD715248B9B4F006C4058 /* AppDelegate.swift */; };
-		483DD71D248B9B4F006C4058 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483DD71B248B9B4F006C4058 /* Main.storyboard */; };
 		483DD71F248B9B50006C4058 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 483DD71E248B9B50006C4058 /* Assets.xcassets */; };
 		483DD722248B9B50006C4058 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 483DD720248B9B50006C4058 /* LaunchScreen.storyboard */; };
 		483DD73B248BBA56006C4058 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD739248BBA56006C4058 /* MovieListViewController.swift */; };
@@ -45,7 +44,6 @@
 /* Begin PBXFileReference section */
 		483DD712248B9B4F006C4058 /* GoMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		483DD715248B9B4F006C4058 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		483DD71C248B9B4F006C4058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		483DD71E248B9B50006C4058 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		483DD721248B9B50006C4058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		483DD723248B9B50006C4058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				48FA63D8248BEC0F0075871C /* Models */,
 				483DD71E248B9B50006C4058 /* Assets.xcassets */,
 				483DD715248B9B4F006C4058 /* AppDelegate.swift */,
-				483DD71B248B9B4F006C4058 /* Main.storyboard */,
 				483DD720248B9B50006C4058 /* LaunchScreen.storyboard */,
 				483DD723248B9B50006C4058 /* Info.plist */,
 			);
@@ -298,7 +295,6 @@
 				48CDC3E8249BE39A00F9066A /* Localizable.strings in Resources */,
 				483DD740248BBE96006C4058 /* MovieTableViewCell.xib in Resources */,
 				483DD71F248B9B50006C4058 /* Assets.xcassets in Resources */,
-				483DD71D248B9B4F006C4058 /* Main.storyboard in Resources */,
 				483DD73C248BBA56006C4058 /* MovieListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,14 +351,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		483DD71B248B9B4F006C4058 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				483DD71C248B9B4F006C4058 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		483DD720248B9B50006C4058 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
