@@ -7,13 +7,15 @@ The project Support iOS 11.0 and above. The app uses TMDB public api (https://ww
 # Prerequisites
 ## On MAC OSX
 
-### Install Brew
-```
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-### Install Xcode 11.5
+### Install Latest Xcode
 Download from official link [here](https://developer.apple.com/xcode/)
+
+
+# Obtain Bearer Token
+* Signup on TMBD website with your registered email id to obtain your bearer token.
+* Replace the obtained `bearer token` in the `Credentials.swift` file and run the app.
+* ```Note```: Never push the actual bearer token in the repo
+
 
 # Author
 Anshul Vyas |  anshul.vyas380@gmail.com

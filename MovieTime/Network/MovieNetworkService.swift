@@ -27,7 +27,7 @@ class MovieNetworkService: NetworkServiceProtocol {
 
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 60.0)
         request.httpMethod = data.method.requestMethod
-        request.setValue("Bearer \(Constants.bearerToken)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(Credentials.bearerToken)", forHTTPHeaderField: "Authorization")
         request.addValue(Constants.contentType, forHTTPHeaderField: "Content-Type")
 
         return request

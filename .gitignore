@@ -58,6 +58,3 @@ iOSInjectionProject/
 ### Xcode Patch ###
 ./MovieTime.xcodeproj/xcuserdata/
 /*.gcno
-
-# Credentials File
-Credentials.swift
