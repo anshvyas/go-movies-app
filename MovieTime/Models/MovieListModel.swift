@@ -28,6 +28,13 @@ struct MovieListModel: Decodable {
         self.totalPages = try container.decode(Int.self, forKey: .totalPages)
         self.results = try container.decode([FailableDecodable<Movie>].self, forKey: .results).compactMap { $0.base }
     }
+    
+    init(page: Int, totalResults: Int, totalPages: Int, results: [Movie]) {
+        self.page = page
+        self.totalPages = totalPages
+        self.totalResults = totalResults
+        self.results = results
+    }
 
     struct Movie: Decodable {
         let id: Int
