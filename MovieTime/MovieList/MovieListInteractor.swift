@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MovieListInteractorProtocol: class {
+protocol MovieListInteractorProtocol: AnyObject {
     func fetchMovieList()
 }
 
@@ -24,7 +24,7 @@ class MovieListInteractor {
 //MARK: MovieListInteractorProtocol Methods
 extension MovieListInteractor: MovieListInteractorProtocol {
     func fetchMovieList() {
-        let apiData = APIData(urlString: Constants.movieListUrlString, method: .get)
+        let apiData = APIData(urlString: Constants.movieListUrlString, method: .get, headers: APIData.Headers(bearerToken: Credentials.getBearerTokenHeaderValue(), contentType: Constants.contentType))
 
         self.service.makeAPIRequest(data: apiData) {[weak self] (result) in
             guard let self = self, let sPresenter = self.presenter else {

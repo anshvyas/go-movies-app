@@ -24,11 +24,11 @@ class MovieNetworkService: NetworkServiceProtocol {
         guard let url = URL(string: data.urlString) else {
             return nil
         }
-
+        
+        
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 60.0)
         request.httpMethod = data.method.requestMethod
-        request.setValue("Bearer \(Credentials.bearerToken)", forHTTPHeaderField: "Authorization")
-        request.addValue(Constants.contentType, forHTTPHeaderField: "Content-Type")
+        request.allHTTPHeaderFields = data.allHTTPHeaderFields
 
         return request
     }

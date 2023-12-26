@@ -58,3 +58,4 @@ iOSInjectionProject/
 ### Xcode Patch ###
 ./MovieTime.xcodeproj/xcuserdata/
 /*.gcno
+./MovieTime/Network/token.json

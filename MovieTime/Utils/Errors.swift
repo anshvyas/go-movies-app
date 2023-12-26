@@ -20,3 +20,8 @@ enum HTTPError: Error {
         case jsonParsingFailed
     }
 }
+
+enum FileError: Error {
+    case fileNotFound(fileName: String)
+    case fileDecodingFailed(fileName: String, error: Error)
+}

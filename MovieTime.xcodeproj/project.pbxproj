@@ -15,7 +15,7 @@
 		483DD73F248BBE96006C4058 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DD73D248BBE96006C4058 /* MovieTableViewCell.swift */; };
 		483DD740248BBE96006C4058 /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 483DD73E248BBE96006C4058 /* MovieTableViewCell.xib */; };
 		4842CA8424969D30009AA070 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842CA8324969D30009AA070 /* ImageDownloader.swift */; };
-		4842CA8624972B4A009AA070 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842CA8524972B4A009AA070 /* HTTPError.swift */; };
+		4842CA8624972B4A009AA070 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4842CA8524972B4A009AA070 /* Errors.swift */; };
 		4888122F249F57550081AF79 /* MovieListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4888122E249F57550081AF79 /* MovieListInteractorTests.swift */; };
 		48881232249F57C20081AF79 /* MovieNetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48881231249F57C20081AF79 /* MovieNetworkServiceMock.swift */; };
 		48881234249F9BD50081AF79 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48881233249F9BD50081AF79 /* main.swift */; };
@@ -59,7 +59,7 @@
 		483DD73D248BBE96006C4058 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		483DD73E248BBE96006C4058 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		4842CA8324969D30009AA070 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		4842CA8524972B4A009AA070 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
+		4842CA8524972B4A009AA070 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		4888122E249F57550081AF79 /* MovieListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListInteractorTests.swift; sourceTree = "<group>"; };
 		48881231249F57C20081AF79 /* MovieNetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNetworkServiceMock.swift; sourceTree = "<group>"; };
 		48881233249F9BD50081AF79 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -177,6 +177,7 @@
 		48881229249E5D7F0081AF79 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4842CA8524972B4A009AA070 /* Errors.swift */,
 				48B24A96249A54CB004A29B0 /* LocalizationExtension.swift */,
 			);
 			path = Utils;
@@ -232,7 +233,6 @@
 				48FA63DC248C08290075871C /* MovieNetworkService.swift */,
 				48FA63DE248C09A80075871C /* Constants.swift */,
 				48FA63E0248CC9E90075871C /* APIData.swift */,
-				4842CA8524972B4A009AA070 /* HTTPError.swift */,
 				48D06AA024A0EB9F00DB8EB1 /* Credentials.swift */,
 			);
 			path = Network;
@@ -323,7 +323,7 @@
 				48CDC3E8249BE39A00F9066A /* Localizable.strings in Resources */,
 				483DD740248BBE96006C4058 /* MovieTableViewCell.xib in Resources */,
 				483DD71F248B9B50006C4058 /* Assets.xcassets in Resources */,
-				483DD73C248BBA56006C4058 /* MovieListViewController.xib in Resources */,
+				483DD73C248BBA56006C4058 /* MovieListViewController.xib in Resources */
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +345,7 @@
 				48FA63DD248C08290075871C /* MovieNetworkService.swift in Sources */,
 				483DD716248B9B4F006C4058 /* AppDelegate.swift in Sources */,
 				48FA63E3248D2BE60075871C /* MovieListRouter.swift in Sources */,
-				4842CA8624972B4A009AA070 /* HTTPError.swift in Sources */,
+				4842CA8624972B4A009AA070 /* Errors.swift in Sources */,
 				48B24A97249A54CB004A29B0 /* LocalizationExtension.swift in Sources */,
 				48FA63E1248CC9E90075871C /* APIData.swift in Sources */,
 				483DD73B248BBA56006C4058 /* MovieListViewController.swift in Sources */,
