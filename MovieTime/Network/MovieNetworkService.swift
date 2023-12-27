@@ -9,7 +9,7 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func makeAPIRequest(data: APIData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void)
+    func makeAPIRequest(data: NetworkRequestData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void)
 }
 
 class MovieNetworkService: NetworkServiceProtocol {
@@ -20,20 +20,20 @@ class MovieNetworkService: NetworkServiceProtocol {
         self.session = URLSession(configuration: .default, delegate: nil, delegateQueue: .main)
     }
 
-    private func initRequest(data: APIData) -> URLRequest? {
+    private func initRequest(data: NetworkRequestData) -> URLRequest? {
         guard let url = URL(string: data.urlString) else {
             return nil
         }
         
         
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 60.0)
-        request.httpMethod = data.method.requestMethod
-        request.allHTTPHeaderFields = data.allHTTPHeaderFields
+        request.httpMethod = data.requestType.requestMethod
+        request.allHTTPHeaderFields = data.headers
 
         return request
     }
 
-    func makeAPIRequest(data: APIData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void) {
+    func makeAPIRequest(data: NetworkRequestData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void) {
         self.dataTask = nil
         guard let request = self.initRequest(data: data) else {
             return

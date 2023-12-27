@@ -11,8 +11,8 @@ import Foundation
 
 class MovieNetworkServiceMock: NetworkServiceProtocol {
     var completionHandler: ((Result<Any?, HTTPError>) -> Void)?
-    var apiData: APIData?
-    func makeAPIRequest(data: APIData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void) {
+    var apiData: NetworkRequestData?
+    func makeAPIRequest(data: NetworkRequestData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void) {
         self.apiData = data
         self.completionHandler = completionHandler
     }

@@ -8,26 +8,10 @@
 
 import Foundation
 
-struct APIData {
-    let urlString: String
-    let method: HTTPMethod
-    let headers: Headers
-    
-    var allHTTPHeaderFields: [String: String] {
-        return headers.headersDict
-    }
-    
-    struct Headers {
-        let bearerToken: String
-        let contentType: String
-        
-        var headersDict: [String: String] {
-            return [
-                "Authorization": self.bearerToken,
-                "accept": self.contentType
-            ]
-        }
-    }
+protocol NetworkRequestData {
+    var requestType: HTTPMethod { get }
+    var urlString: String { get }
+    var headers: [String: String] { get }
 }
 
 enum HTTPMethod {
@@ -41,5 +25,21 @@ enum HTTPMethod {
         case .post:
             return "POST"
         }
+    }
+}
+
+struct MovieListAPIData: NetworkRequestData {
+    let bearerToken: String
+    let contentType: String
+    
+    var requestType: HTTPMethod = .get
+    
+    var urlString: String = Constants.movieListUrlString
+    
+    var headers: [String : String] {
+        return [
+            "Authorization": self.bearerToken,
+            "accept": self.contentType
+        ]
     }
 }

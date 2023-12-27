@@ -23,7 +23,7 @@ class MovieListInteractorTests: XCTestCase {
         self.interactor.fetchMovieList()
         self.setupSuccessStata()
 
-        XCTAssertEqual(self.networkServiceMock.apiData?.method, .get)
+        XCTAssertEqual(self.networkServiceMock.apiData?.requestType, .get)
         XCTAssertEqual(self.networkServiceMock.apiData?.urlString, Constants.movieListUrlString)
         XCTAssertNotNil(self.networkServiceMock.completionHandler)
     }
