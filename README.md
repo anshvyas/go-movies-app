@@ -13,7 +13,14 @@ Download from official link [here](https://developer.apple.com/xcode/)
 
 # Obtain Bearer Token
 * Signup on TMBD website with your registered email id to obtain your bearer token.
-* Replace the obtained `bearer token` in the `Credentials.swift` file and run the app.
+* Create a file `token.json` inside `Network` folder. 
+* Add your obtained bearer token in the following json format
+```
+{
+    "bearer_token": <YOUR BEARER TOKEN>
+}
+```
+
 * ```Note```: Never push the actual bearer token in the repo
 
 
