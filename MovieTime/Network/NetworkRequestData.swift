@@ -27,19 +27,3 @@ enum HTTPMethod {
         }
     }
 }
-
-struct MovieListAPIData: NetworkRequestData {
-    let bearerToken: String
-    let contentType: String
-    
-    var requestType: HTTPMethod = .get
-    
-    var urlString: String = Constants.movieListUrlString
-    
-    var headers: [String : String] {
-        return [
-            "Authorization": self.bearerToken,
-            "accept": self.contentType
-        ]
-    }
-}
