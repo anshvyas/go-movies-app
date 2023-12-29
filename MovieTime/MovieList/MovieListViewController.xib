@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListViewController" customModule="MovieTime" customModuleProvider="target">
             <connections>
                 <outlet property="movieListTableView" destination="YK1-UU-oWz" id="Gr6-kW-ahn"/>
+                <outlet property="pageInfoLabel" destination="afF-ka-BQM" id="Y0t-6e-fPH"/>
+                <outlet property="pageUpdationStepper" destination="w7c-Q2-F0c" id="TwN-Mj-I7m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +23,37 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YK1-UU-oWz">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="719"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afF-ka-BQM">
+                    <rect key="frame" x="184" y="783" width="46" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="w7c-Q2-F0c">
+                    <rect key="frame" x="160" y="814" width="94" height="32"/>
+                </stepper>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="YK1-UU-oWz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4gn-GG-gky"/>
                 <constraint firstItem="YK1-UU-oWz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="97j-4d-x6w"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YK1-UU-oWz" secondAttribute="bottom" id="tDZ-Ak-a4c"/>
+                <constraint firstItem="afF-ka-BQM" firstAttribute="top" secondItem="YK1-UU-oWz" secondAttribute="bottom" constant="16" id="Hfd-ad-pcN"/>
+                <constraint firstItem="w7c-Q2-F0c" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="lel-Kh-JH9"/>
+                <constraint firstItem="w7c-Q2-F0c" firstAttribute="top" secondItem="afF-ka-BQM" secondAttribute="bottom" constant="8" id="nVl-HM-dyk"/>
+                <constraint firstItem="afF-ka-BQM" firstAttribute="centerX" secondItem="w7c-Q2-F0c" secondAttribute="centerX" id="pCB-1r-NLn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YK1-UU-oWz" secondAttribute="trailing" id="uMl-4I-1PS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="w7c-Q2-F0c" secondAttribute="bottom" constant="16" id="yco-ST-3sp"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="127"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

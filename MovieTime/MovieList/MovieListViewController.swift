@@ -17,6 +17,9 @@ protocol MovieListViewControllerProtocol: AnyObject {
 
 class MovieListViewController: UIViewController {
     @IBOutlet weak var movieListTableView: UITableView!
+    @IBOutlet weak var pageInfoLabel: UILabel!
+    @IBOutlet weak var pageUpdationStepper: UIStepper!
+    
     private var activityIndicator: UIActivityIndicatorView?
 
     private let presenter: MovieListViewDelegate
@@ -32,12 +35,15 @@ class MovieListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "movie_list_title".localizedString()
         self.setupTableView()
+        self.setupPageUpdationViews()
         self.presenter.viewDidLoad()
     }
 
-    private func setupActivityIndicator() -> UIActivityIndicatorView{
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
+    private func setupActivityIndicator() -> UIActivityIndicatorView {
+        let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         activityIndicator.center = self.view.center
         self.view.addSubview(activityIndicator)
         return activityIndicator
@@ -50,6 +56,27 @@ class MovieListViewController: UIViewController {
         self.movieListTableView.estimatedRowHeight = 76.0
         self.movieListTableView.rowHeight = UITableView.automaticDimension
         self.movieListTableView.isHidden = true
+    }
+    
+    private func setupPageUpdationViews() {
+        self.pageUpdationStepper.minimumValue = 1
+        self.pageUpdationStepper.maximumValue = 500
+        self.pageUpdationStepper.value = 1
+        self.pageUpdationStepper.stepValue = 1
+        self.pageUpdationStepper.autorepeat = false
+        self.pageUpdationStepper.isContinuous = false
+        self.pageUpdationStepper.wraps = true
+        self.pageUpdationStepper.addTarget(self, action: #selector(stepperValueChanged), for: .valueChanged)
+        
+        self.updatePageLabel()
+    }
+    
+    @objc private func stepperValueChanged() {
+        self.updatePageLabel()
+    }
+    
+    private func updatePageLabel() {
+        self.pageInfoLabel.text = "Page: \(Int(self.pageUpdationStepper.value))"
     }
 }
 
