@@ -39,7 +39,7 @@ class MovieListViewController: UIViewController {
         self.title = "movie_list_title".localizedString()
         self.setupTableView()
         self.setupPageUpdationViews()
-        self.presenter.viewDidLoad()
+        self.presenter.viewDidLoad(page: Int(self.pageUpdationStepper.value))
     }
 
     private func setupActivityIndicator() -> UIActivityIndicatorView {
@@ -105,10 +105,14 @@ extension MovieListViewController: MovieListViewControllerProtocol {
     func showErrorPopUp(title: String, message: String) {
         let errorPopup = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let retryAction = UIAlertAction(title:"error_popup_cta_title".localizedString(), style: .default, handler: { [weak self] (action) in
-            self?.presenter.viewDidLoad()
+            guard let self else {
+                return
+            }
+            
+            self.presenter.viewDidLoad(page: Int(self.pageUpdationStepper.value))
         })
         errorPopup.addAction(retryAction)
-
+        
         self.present(errorPopup, animated: true, completion: nil)
     }
     

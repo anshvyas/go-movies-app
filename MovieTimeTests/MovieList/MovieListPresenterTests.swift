@@ -21,13 +21,13 @@ class MovieListPresenterTests: XCTestCase {
     }
     
     func testViewDidLoadTellsViewToStartLoading() {
-        self.presenter.viewDidLoad()
+        self.presenter.viewDidLoad(page: 1)
         XCTAssertTrue(self.viewMock.startLoadingCalled)
     }
     
-    func testViewDidLoadTellsInteractorToStartFetchingMovies() {
-        self.presenter.viewDidLoad()
-        XCTAssertTrue(self.interactorMock.fetchMovieListCalled)
+    func testViewDidLoadTellsInteractorToStartFetchingMoviesForRequestedPage() {
+        self.presenter.viewDidLoad(page: 1)
+        XCTAssertEqual(self.interactorMock.fetchMovieListCalledWithPage, 1)
     }
     
     func testGetNumberOfRowsToReturnExpectedNumbersOfRows() {
@@ -67,9 +67,9 @@ class MovieListPresenterTests: XCTestCase {
     
     //MARK: Mocks
     class MovieListInteractorMock: MovieListInteractorProtocol {
-        var fetchMovieListCalled: Bool = false
-        func fetchMovieList() {
-            self.fetchMovieListCalled = true
+        var fetchMovieListCalledWithPage: Int?
+        func fetchMovieList(page: Int) {
+            self.fetchMovieListCalledWithPage = page
         }
     }
     

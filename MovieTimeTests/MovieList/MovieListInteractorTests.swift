@@ -20,7 +20,7 @@ class MovieListInteractorTests: XCTestCase {
     }
 
     func testFetchMovieListToStartAPICallWithAppropriateAPIData() {
-        self.interactor.fetchMovieList()
+        self.interactor.fetchMovieList(page: 1)
         self.setupSuccessStata()
 
         XCTAssertEqual(self.networkServiceMock.apiData?.requestType, .get)
@@ -29,7 +29,7 @@ class MovieListInteractorTests: XCTestCase {
     }
 
     func testFetchMovieListSuccessCallsSuccessDelegateOfPresenterWithResponseModel() {
-        self.interactor.fetchMovieList()
+        self.interactor.fetchMovieList(page: 1)
         let model = self.setupSuccessStata()
 
         XCTAssertEqual(self.presenterMock.fetchMovieListSuccessCalledWithData?.results.count, model.results.count)
@@ -38,21 +38,21 @@ class MovieListInteractorTests: XCTestCase {
     }
 
     func testFetchMovieListFailureCallsFailureDelegateOfPresenterWithServerError() {
-        self.interactor.fetchMovieList()
+        self.interactor.fetchMovieList(page: 1)
         let error = self.setupServerErrorState()
 
         XCTAssertEqual(self.presenterMock.fetchMovieListErrorCalledWithError, error)
     }
 
     func testFetchMovieListWithEmptyDataCallsFailureDelegateOfPresenterWithEmptyDataError() {
-        self.interactor.fetchMovieList()
+        self.interactor.fetchMovieList(page: 1)
         self.setupEmptyDataStata()
 
         XCTAssertEqual(self.presenterMock.fetchMovieListErrorCalledWithError, .responseParsingError(reason: .emptyData))
     }
 
     func testFetchMovieListWithCorruptDataCallsFailureDelegateOfPresenterWithJSONParsingError() {
-        self.interactor.fetchMovieList()
+        self.interactor.fetchMovieList(page: 1)
         self.setupCorruptDataStata()
 
         XCTAssertEqual(self.presenterMock.fetchMovieListErrorCalledWithError, .responseParsingError(reason: .jsonParsingFailed))

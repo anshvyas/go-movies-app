@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MovieListInteractorProtocol: AnyObject {
-    func fetchMovieList()
+    func fetchMovieList(page: Int)
 }
 
 class MovieListInteractor {
@@ -23,8 +23,8 @@ class MovieListInteractor {
 
 //MARK: MovieListInteractorProtocol Methods
 extension MovieListInteractor: MovieListInteractorProtocol {
-    func fetchMovieList() {
-        let apiData = MovieListAPIData(bearerToken: Credentials.getBearerTokenHeaderValue(), contentType: Constants.contentType)
+    func fetchMovieList(page: Int) {
+        let apiData = MovieListAPIData(bearerToken: Credentials.getBearerTokenHeaderValue(), contentType: Constants.contentType, page: page)
 
         self.service.makeAPIRequest(data: apiData) {[weak self] (result) in
             guard let self = self, let sPresenter = self.presenter else {

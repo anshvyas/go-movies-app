@@ -12,6 +12,7 @@ protocol NetworkRequestData {
     var requestType: HTTPMethod { get }
     var urlString: String { get }
     var headers: [String: String] { get }
+    var params: [String: Any] { get }
 }
 
 enum HTTPMethod {

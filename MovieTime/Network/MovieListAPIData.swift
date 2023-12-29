@@ -11,6 +11,7 @@ import Foundation
 struct MovieListAPIData: NetworkRequestData {
     let bearerToken: String
     let contentType: String
+    let page: Int
     
     var requestType: HTTPMethod = .get
     
@@ -20,6 +21,12 @@ struct MovieListAPIData: NetworkRequestData {
         return [
             "Authorization": self.bearerToken,
             "accept": self.contentType
+        ]
+    }
+    
+    var params: [String : Any] {
+        return [
+            "page": self.page
         ]
     }
 }

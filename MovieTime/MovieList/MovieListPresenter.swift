@@ -14,7 +14,7 @@ protocol MovieListIneractorDelegate: AnyObject {
 }
 
 protocol MovieListViewDelegate: AnyObject {
-    func viewDidLoad()
+    func viewDidLoad(page: Int)
     func getNumberOfRows() -> Int
     func getCellData(at index: Int) -> MovieCellData
 }
@@ -34,9 +34,9 @@ class MovieListPresenter {
 
 //MARK: Delegate callbacks for view
 extension MovieListPresenter: MovieListViewDelegate {
-    func viewDidLoad() {
+    func viewDidLoad(page: Int) {
         self.view?.startLoading()
-        self.interactor.fetchMovieList()
+        self.interactor.fetchMovieList(page: page)
     }
 
     func getNumberOfRows() -> Int {
