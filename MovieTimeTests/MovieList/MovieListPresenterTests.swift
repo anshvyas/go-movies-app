@@ -10,13 +10,15 @@ import XCTest
 @testable import MovieTime
 
 class MovieListPresenterTests: XCTestCase {
-    var presenter: MovieListPresenter!
-    let interactorMock: MovieListInteractorMock = MovieListInteractorMock()
-    let routerMock: MovieListRouterMok = MovieListRouterMok()
-    let viewMock: MovieListViewMock = MovieListViewMock()
+    private var presenter: MovieListPresenter!
+    private let interactorMock: MovieListInteractorMock = MovieListInteractorMock()
+    private let routerMock: MovieListRouterMok = MovieListRouterMok()
+    private let viewMock: MovieListViewMock = MovieListViewMock()
+    private let timerMock: TimerMock = TimerMock()
     
     override func setUpWithError() throws {
-        self.presenter = MovieListPresenter(interactor: self.interactorMock, router: self.routerMock)
+        self.presenter = MovieListPresenter(interactor: self.interactorMock, router: self.routerMock, timerType: TimerMock.self)
+        TimerMock.timerMock = self.timerMock
         self.presenter.view = viewMock
     }
     
@@ -50,7 +52,7 @@ class MovieListPresenterTests: XCTestCase {
     
     func testFetchMovieListSuccessToTellViewToReloadData() {
         self.setPresenterToSuccess()
-        XCTAssertTrue(self.viewMock.reloadDataCalled)
+        XCTAssertTrue(self.viewMock.showMovieListCalled)
     }
     
     func testFetchMovieListFailureToTellViewToStopLoading() {
@@ -63,6 +65,31 @@ class MovieListPresenterTests: XCTestCase {
         
         XCTAssertEqual(self.viewMock.showErrorPopUpCalledWithArgs?.title, "error_popup_title".localizedString())
         XCTAssertEqual(self.viewMock.showErrorPopUpCalledWithArgs?.message, "error_popup_message".localizedString())
+    }
+    
+    func testRefreshMovieListToInvalidatesPreviousTimer() {
+        self.presenter.refreshMovieList(page: 2)
+        self.presenter.refreshMovieList(page: 3)
+        
+        XCTAssertTrue(self.timerMock.invalidateCalled)
+    }
+    
+    func testRefreshMovieListToFiresTimerToStartFetchingMoviesForRequestedPage() {
+        self.presenter.refreshMovieList(page: 2)
+        
+        XCTAssertEqual(self.interactorMock.fetchMovieListCalledWithPage, 2)
+    }
+    
+    func testRefreshMovieListFiresTimerToHideMovieList() {
+        self.presenter.refreshMovieList(page: 2)
+        
+        XCTAssertTrue(self.viewMock.hideMovieListCalled)
+    }
+    
+    func testRefreshMovieListFiresTimerToStartLoading() {
+        self.presenter.refreshMovieList(page: 2)
+        
+        XCTAssertTrue(self.viewMock.startLoadingCalled)
     }
     
     //MARK: Mocks
@@ -81,6 +108,16 @@ class MovieListPresenterTests: XCTestCase {
     }
     
     class MovieListViewMock: MovieListViewControllerProtocol {
+        var hideMovieListCalled: Bool = false
+        func hideMovieList() {
+            self.hideMovieListCalled = true
+        }
+        
+        var showMovieListCalled: Bool = false
+        func showMovieList() {
+            self.showMovieListCalled = true
+        }
+        
         var startLoadingCalled: Bool = false
         func startLoading() {
             self.startLoadingCalled = true
@@ -89,11 +126,6 @@ class MovieListPresenterTests: XCTestCase {
         var stopLoadingCalled: Bool = false
         func stopLoading() {
             self.stopLoadingCalled = true
-        }
-        
-        var reloadDataCalled: Bool = false
-        func reloadData() {
-            self.reloadDataCalled = true
         }
         
         var showErrorPopUpCalledWithArgs: (title: String, message: String)?

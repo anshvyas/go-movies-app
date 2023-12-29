@@ -18,6 +18,12 @@ class MovieListInteractorTests: XCTestCase {
         self.interactor = MovieListInteractor(service: self.networkServiceMock)
         self.interactor.presenter = self.presenterMock
     }
+    
+    func testFetchMovieListToCancelPreviousAPICall() {
+        self.interactor.fetchMovieList(page: 1)
+        
+        XCTAssertTrue(self.networkServiceMock.cancelAPIRequestCalled)
+    }
 
     func testFetchMovieListToStartAPICallWithAppropriateAPIData() {
         self.interactor.fetchMovieList(page: 1)

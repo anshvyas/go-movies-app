@@ -10,6 +10,11 @@ import Foundation
 @testable import MovieTime
 
 class MovieNetworkServiceMock: NetworkServiceProtocol {
+    var cancelAPIRequestCalled: Bool = false
+    func cancelAPIRequest() {
+        self.cancelAPIRequestCalled = true
+    }
+    
     var completionHandler: ((Result<Any?, HTTPError>) -> Void)?
     var apiData: NetworkRequestData?
     func makeAPIRequest(data: NetworkRequestData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void) {

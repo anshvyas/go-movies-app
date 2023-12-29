@@ -33,6 +33,8 @@
 		48FA63DF248C09A80075871C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63DE248C09A80075871C /* Constants.swift */; };
 		48FA63E1248CC9E90075871C /* NetworkRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63E0248CC9E90075871C /* NetworkRequestData.swift */; };
 		48FA63E3248D2BE60075871C /* MovieListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA63E2248D2BE60075871C /* MovieListRouter.swift */; };
+		A569B5822B3F32F100F184D1 /* TimerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A569B5812B3F32F100F184D1 /* TimerProtocol.swift */; };
+		A569B5852B3F371F00F184D1 /* TimerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A569B5842B3F371F00F184D1 /* TimerMock.swift */; };
 		A59F3BE92B3C0D6000A5B39D /* token.json in Resources */ = {isa = PBXBuildFile; fileRef = A59F3BE82B3C0D6000A5B39D /* token.json */; };
 		A59F3BEB2B3C0FB000A5B39D /* MovieListAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F3BEA2B3C0FB000A5B39D /* MovieListAPIData.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +81,8 @@
 		48FA63DE248C09A80075871C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		48FA63E0248CC9E90075871C /* NetworkRequestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestData.swift; sourceTree = "<group>"; };
 		48FA63E2248D2BE60075871C /* MovieListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListRouter.swift; sourceTree = "<group>"; };
+		A569B5812B3F32F100F184D1 /* TimerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerProtocol.swift; sourceTree = "<group>"; };
+		A569B5842B3F371F00F184D1 /* TimerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerMock.swift; sourceTree = "<group>"; };
 		A59F3BE82B3C0D6000A5B39D /* token.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = token.json; sourceTree = "<group>"; };
 		A59F3BEA2B3C0FB000A5B39D /* MovieListAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListAPIData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +144,7 @@
 		483DD72B248B9B51006C4058 /* MovieTimeTests */ = {
 			isa = PBXGroup;
 			children = (
+				A569B5832B3F371300F184D1 /* Mocks */,
 				4898215724A90B5300A3C32F /* Models */,
 				48881230249F57AA0081AF79 /* Network */,
 				4888122A249F56BB0081AF79 /* MovieList */,
@@ -184,6 +189,7 @@
 			children = (
 				4842CA8524972B4A009AA070 /* Errors.swift */,
 				48B24A96249A54CB004A29B0 /* LocalizationExtension.swift */,
+				A569B5812B3F32F100F184D1 /* TimerProtocol.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -241,6 +247,14 @@
 				A59F3BEA2B3C0FB000A5B39D /* MovieListAPIData.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		A569B5832B3F371300F184D1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A569B5842B3F371F00F184D1 /* TimerMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		A59F3BE72B3C0D3500A5B39D /* CredentialStore */ = {
@@ -361,6 +375,7 @@
 				483DD716248B9B4F006C4058 /* AppDelegate.swift in Sources */,
 				48FA63E3248D2BE60075871C /* MovieListRouter.swift in Sources */,
 				4842CA8624972B4A009AA070 /* Errors.swift in Sources */,
+				A569B5822B3F32F100F184D1 /* TimerProtocol.swift in Sources */,
 				A59F3BEB2B3C0FB000A5B39D /* MovieListAPIData.swift in Sources */,
 				48B24A97249A54CB004A29B0 /* LocalizationExtension.swift in Sources */,
 				48FA63E1248CC9E90075871C /* NetworkRequestData.swift in Sources */,
@@ -383,6 +398,7 @@
 			files = (
 				4898215924A90B6D00A3C32F /* MovieListModelTests.swift in Sources */,
 				489554FA24A8B103005D7CAC /* MovieListPresenterTests.swift in Sources */,
+				A569B5852B3F371F00F184D1 /* TimerMock.swift in Sources */,
 				48881232249F57C20081AF79 /* MovieNetworkServiceMock.swift in Sources */,
 				4888122F249F57550081AF79 /* MovieListInteractorTests.swift in Sources */,
 			);

@@ -24,6 +24,8 @@ class MovieListInteractor {
 //MARK: MovieListInteractorProtocol Methods
 extension MovieListInteractor: MovieListInteractorProtocol {
     func fetchMovieList(page: Int) {
+        self.service.cancelAPIRequest()
+        
         let apiData = MovieListAPIData(bearerToken: Credentials.getBearerTokenHeaderValue(), contentType: Constants.contentType, page: page)
 
         self.service.makeAPIRequest(data: apiData) {[weak self] (result) in

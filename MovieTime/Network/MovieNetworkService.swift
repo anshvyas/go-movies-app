@@ -10,6 +10,7 @@ import Foundation
 
 protocol NetworkServiceProtocol {
     func makeAPIRequest(data: NetworkRequestData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void)
+    func cancelAPIRequest()
 }
 
 class MovieNetworkService: NetworkServiceProtocol {
@@ -51,7 +52,6 @@ class MovieNetworkService: NetworkServiceProtocol {
     }
     
     func makeAPIRequest(data: NetworkRequestData, completionHandler: @escaping (Result<Any?, HTTPError>) -> Void) {
-        self.dataTask = nil
         guard let request = self.initRequest(data: data) else {
             return
         }
@@ -74,5 +74,10 @@ class MovieNetworkService: NetworkServiceProtocol {
         
         self.dataTask = task
         self.dataTask?.resume()
+    }
+    
+    func cancelAPIRequest() {
+        self.dataTask?.cancel()
+        self.dataTask = nil
     }
 }

@@ -15,6 +15,7 @@ protocol MovieListIneractorDelegate: AnyObject {
 
 protocol MovieListViewDelegate: AnyObject {
     func viewDidLoad(page: Int)
+    func refreshMovieList(page: Int)
     func getNumberOfRows() -> Int
     func getCellData(at index: Int) -> MovieCellData
 }
@@ -24,11 +25,14 @@ class MovieListPresenter {
     private let interactor: MovieListInteractorProtocol
     private let router: MovieListRouterProtocol
     private var movies: [MovieListModel.Movie]
+    private var debounceTimer: TimerProtocol?
+    private let timerType: TimerProtocol.Type
 
-    init(interactor: MovieListInteractorProtocol, router: MovieListRouterProtocol) {
+    init(interactor: MovieListInteractorProtocol, router: MovieListRouterProtocol, timerType: TimerProtocol.Type = Timer.self) {
         self.interactor = interactor
         self.router = router
         self.movies = []
+        self.timerType = timerType
     }
 }
 
@@ -36,7 +40,18 @@ class MovieListPresenter {
 extension MovieListPresenter: MovieListViewDelegate {
     func viewDidLoad(page: Int) {
         self.view?.startLoading()
+        self.view?.hideMovieList()
         self.interactor.fetchMovieList(page: page)
+    }
+    
+    func refreshMovieList(page: Int) {
+        self.debounceTimer?.invalidate()
+        self.debounceTimer = self.timerType.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] (_) in
+            guard let self else { return }
+            self.view?.startLoading()
+            self.view?.hideMovieList()
+            self.interactor.fetchMovieList(page: page)
+        }
     }
 
     func getNumberOfRows() -> Int {
@@ -61,7 +76,7 @@ extension MovieListPresenter: MovieListIneractorDelegate {
     func fetchMovieListSuccess(data: MovieListModel) {
         self.movies = data.results
         self.view?.stopLoading()
-        self.view?.reloadData()
+        self.view?.showMovieList()
     }
 
     func fetchMovieListError(error: HTTPError) {

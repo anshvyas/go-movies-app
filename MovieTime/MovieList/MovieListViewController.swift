@@ -11,7 +11,8 @@ import UIKit
 protocol MovieListViewControllerProtocol: AnyObject {
     func startLoading()
     func stopLoading()
-    func reloadData()
+    func hideMovieList()
+    func showMovieList()
     func showErrorPopUp(title: String, message: String)
 }
 
@@ -19,7 +20,6 @@ class MovieListViewController: UIViewController {
     @IBOutlet weak var movieListTableView: UITableView!
     @IBOutlet weak var pageInfoLabel: UILabel!
     @IBOutlet weak var pageUpdationStepper: UIStepper!
-    
     private var activityIndicator: UIActivityIndicatorView?
 
     private let presenter: MovieListViewDelegate
@@ -73,6 +73,7 @@ class MovieListViewController: UIViewController {
     
     @objc private func stepperValueChanged() {
         self.updatePageLabel()
+        self.presenter.refreshMovieList(page: Int(self.pageUpdationStepper.value))
     }
     
     private func updatePageLabel() {
@@ -117,8 +118,10 @@ extension MovieListViewController: MovieListViewControllerProtocol {
     }
     
     func startLoading() {
-        let activityIndicator = self.setupActivityIndicator()
-        self.activityIndicator = activityIndicator
+        if self.activityIndicator == nil {
+            self.activityIndicator = self.setupActivityIndicator()
+        }
+        
         self.activityIndicator?.startAnimating()
     }
     
@@ -127,8 +130,12 @@ extension MovieListViewController: MovieListViewControllerProtocol {
         self.activityIndicator? .removeFromSuperview()
         self.activityIndicator = nil
     }
+    
+    func hideMovieList() {
+        self.movieListTableView.isHidden = true
+    }
 
-    func reloadData() {
+    func showMovieList() {
         self.movieListTableView.reloadData()
         self.movieListTableView.isHidden = false
     }
