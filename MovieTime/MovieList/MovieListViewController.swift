@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MovieListViewControllerProtocol: class {
+protocol MovieListViewControllerProtocol: AnyObject {
     func startLoading()
     func stopLoading()
     func reloadData()

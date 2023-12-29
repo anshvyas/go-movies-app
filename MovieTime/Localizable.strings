@@ -9,3 +9,4 @@
 "error_popup_title" = "Ooh Something Went Wrong!";
 "error_popup_message" = "No worries. Try again, we’re already on it.";
 "error_popup_cta_title" = "Retry";
+"movie_list_title" = "Popular Movies";

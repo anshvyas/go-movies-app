@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol MovieListIneractorDelegate: class {
+protocol MovieListIneractorDelegate: AnyObject {
     func fetchMovieListSuccess(data: MovieListModel)
     func fetchMovieListError(error: HTTPError)
 }
 
-protocol MovieListViewDelegate: class {
+protocol MovieListViewDelegate: AnyObject {
     func viewDidLoad()
     func getNumberOfRows() -> Int
     func getCellData(at index: Int) -> MovieCellData
